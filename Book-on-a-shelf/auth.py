@@ -2,11 +2,11 @@ from types import new_class
 from flask import Blueprint, render_template, redirect, url_for
 from flask.globals import request
 from flask.helpers import flash
-from sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import User
+from . import db
 
-db = SQLAlchemy()
+
 auth = Blueprint('auth', __name__)
 
 
