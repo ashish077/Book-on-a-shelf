@@ -1,0 +1,38 @@
+{% extends "form_layout.html" %}
+
+{% block body %}
+				<div class="container">
+					<div class="row text-white">
+						<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+							<h1 class="display-4 py-2 text-truncate">Login Page.</h1>
+							<div class="px-2">
+								{% with messages=get_flashed_messages() %}
+								{% if message %}
+
+									<div class="notification is-danger"> {{messages[0]}}. Go to Sign-Up page </div>
+
+								{% end if %}
+								{% endwith %}
+								<form action="{{url_for('login')}}" method="POST" class="justify-content-center">
+									<div class="form-group">
+										<label class="sr-only">Email:</label>
+										<input type="email" class="form-control" name="email" placeholder="jane.doe@example.com">
+									</div>
+									<div class="form-group">
+										<label class="sr-only">Password:</label>
+										<input type="password" name="password" class="form-control" name="password">
+									</div>
+
+									<div class="field">
+										<label class="checkbox">
+											<input type="checkbox" class="form-control">Remember me</label>
+									</div>
+
+									<button type="submit" class="btn btn-primary btn-lg">Launch</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+{% endblock %}
+
