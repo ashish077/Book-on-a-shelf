@@ -9,11 +9,3 @@ def login():
     return render_template('search.html')
 
 
-@main.route('/signup')
-def signup():
-    return render_template('signup.html')
-
-
-@main.route('/signin')
-def signin():
-    return render_template('login.html')

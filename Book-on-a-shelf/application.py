@@ -1,4 +1,6 @@
 
+
+
 from flask_session import Session
 from flask import Flask, session, render_template
 
@@ -11,8 +13,8 @@ from flask_login import LoginManager
 
 db = SQLAlchemy()
 
-app = Flask(__name__)
 
+app = Flask(__name__)
 
 # Check for environment variable
 if not os.getenv("DATABASE_URL"):
@@ -22,8 +24,9 @@ if not os.getenv("DATABASE_URL"):
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-db.init_app(app)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+db.init_app(app)
 
 from main import main as main_blueprint
 from auth import auth as auth_blueprint
